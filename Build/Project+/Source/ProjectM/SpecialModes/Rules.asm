@@ -53,7 +53,7 @@ HOOK @ $806a827c # muProcRule1::setMessage
 }
 
 ##############################################################################################################
-Coin and Time Games Have a Target Amount and Stock Time Limit Handles Time Limit for All Rules v1.1 [Kapedani]
+Coin and Time Games Have a Target Amount and Stock Time Limit Handles Time Limit for All Rules v1.2 [Kapedani]
 ##############################################################################################################
 .alias g_GameGlobal                 = 0x805a00E0
 
@@ -181,6 +181,7 @@ HOOK @ $806a8ca8  # muProcRule2::init
   lwz r12, 0x20(r12)    # | 
   mtctr r12             # | 
   bctrl                 # /
+  stb r29, 0x66c(r28)   # set desired time limit 
   addi r11, r1, 64  # Original operation
 }
 

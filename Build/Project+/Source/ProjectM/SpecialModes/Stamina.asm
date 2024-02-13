@@ -1,6 +1,6 @@
-###############################################
-P+ Stamina REDUX [wiiztec, DukeItOut, Kapedani]
-###############################################
+####################################################
+P+ Stamina REDUX v1.1 [wiiztec, DukeItOut, Kapedani]
+####################################################
 
 .alias g_ftDataCommon							= 0x80B88268
 .alias g_ftManager                          	= 0x80B87C28
@@ -27,6 +27,8 @@ P+ Stamina REDUX [wiiztec, DukeItOut, Kapedani]
 .alias gfTask__getTask							= 0x8002dc40
 .alias _float_1_0								= 0x80AD7DCC
 
+.alias STAGEEX_COLOR_OVERLAY					= 0x8053F00C
+
 .macro lf(<freg>, <reg>, <addr>)
 {
     .alias  temp_Lo = <addr> & 0xFFFF
@@ -44,6 +46,15 @@ P+ Stamina REDUX [wiiztec, DukeItOut, Kapedani]
     .alias  temp_Hi = temp_Hi_ + temp_r
     lis     <reg>, temp_Hi
     lwz     <reg>, temp_Lo(<reg>)
+}
+.macro lwdu(<reg1>, <reg2>, <addr>)
+{
+    .alias  temp_Lo = <addr> & 0xFFFF
+    .alias  temp_Hi_ = <addr> / 0x10000
+    .alias  temp_r = temp_Lo / 0x8000
+    .alias  temp_Hi = temp_Hi_ + temp_r
+    lis     <reg2>, temp_Hi
+    lwzu    <reg1>, temp_Lo(<reg2>)
 }
 .macro lwi(<reg>, <val>)
 {
@@ -222,7 +233,7 @@ belowCrashBreaker:
 	li r4, 7			# \
 	lwz r5, 0x60(r3)	# |
 	lwz r3, 0xd8(r5)	# |
-	lwz r3, 0x70(r3)	# | item->moduleAccesser->moduleEnumeration->attackModule->changeStatusForce(7, moduleAccesser)
+	lwz r3, 0x70(r3)	# | item->moduleAccesser->moduleEnumeration->statusModule->changeStatusForce(7, moduleAccesser)
 	lwz r12, 0x0(r3)	# | Change Bob-omb status so that it immediately explodes on spawn
 	lwz r12, 0x90(r12)	# |
 	mtctr r12			# |
@@ -431,6 +442,17 @@ HOOK @ $8083b310	# Fighter::toDead
 	add r4, r10, r9				# |
 	li r5, 0x1 					# /
 notSubColor:
+	%lwdu(r12, r9, STAGEEX_COLOR_OVERLAY)
+	andi. r12, r12, 0xFF	# Check alpha settings
+	beq- noStageOverlay		# If the alpha was clear, then behave normally and do not provide an overlay
+	%lwd (r11, g_GameGlobal)	# \
+	lwz r11, 0x8(r11)			# | GameGlobal->globalModeMelee->meleeInitData.stageKind
+	lhz r11, 0x1a(r11)			# /
+	cmpwi r11, 0x3d			# \ check if stage id == adventure
+	beq+ noStageOverlay		# /
+	mr r4, r9				# Use stage colour overlay
+	li r5, 1				# Enable overlay
+noStageOverlay:
 	lwz r3, 0xd8(r29)	# |				
 	lwz r3, 0xAC(r3)	# | moduleEnumeration->colorBlendModule->setSubColor(&color, false)
 	lwz r12, 0x0(r3)	# | 
@@ -978,14 +1000,14 @@ HOOK @ $8083aa54	# Fighter::processFixCamera
     lwz	r12, 0x2EC(r12)	# | Fighter->getOwner()
     mtctr r12           # |
     bctrl               # /
+	lwz r10, 0x0(r3)    # \
+    lwz r10,0x8(r10)    # | Check if ftOwner->ftOwnerData->hitPointMax was set  
+    cmpwi r10, 0x0      # |
+	beq+ end			# /	
 	lwz r10, 0x0(r3)			# \
 	lwz r10, 0x34(r10)			# | check if ftOwner->ftOwnerData->stockCount == 0
 	cmplwi r10, 0x0      		# |
 	beq+ disableMagnifierGlass	# /
-	lwz r10, 0x0(r3)    # \
-    lwz r10,0x8(r10)    # | Check if ftOwner->ftOwnerData->hitPointMax was set  
-    cmpwi r10, 0x0      # |
-	beq+ end			# /
 	lwz r12, 0xc(r3)			# \
 	lwz r12, 0x20(r12)			# | 
 	mtctr r12					# |
@@ -1192,8 +1214,34 @@ setPos:
 	mtctr r12			# |
 	bctrl				# /
 	cmpwi r3, 0			# \ check if being held
+	beq- noLink			# /
+	stw r3, 0x8(r1)
+	lwz r12, 0x3c(r3)       # \ 
+    lwz r12, 0xA4(r12)      # | stageObject->soGetKind()
+    mtctr r12               # |
+    bctrl                   # /
+	cmpwi r3, 0x0		# \ check if holder is a fighter
+	bne+ interruptLink	# /
+	lwz r3, 0x8(r1)     # \
+    lwz	r12, 0x3C(r3) 	# |
+    lwz	r12, 0x2EC(r12) # | Fighter->getOwner()
+    mtctr r12         	# |
+    bctrl               # /
+	lwz r10, 0x0(r3)    # \
+    lwz r10,0x8(r10)    # | Check if ftOwner->ftOwnerData->hitPointMax was set  
+    cmpwi r10, 0x0      # |
 	bne+ noAddDamage	# /
-
+interruptLink:
+	li r4, 0x40			# \
+	mr r5, r31			# |
+	lwz r3, 0xd8(r31)	# |
+	lwz r3, 0x70(r3)	# | moduleAccesser->moduleEnumeration->statusModule->changeStatusRequest(0x40, moduleAccesser)
+	lwz r12, 0x0(r3)	# | 
+	lwz r12, 0x14(r12)	# |
+	mtctr r12 			# |
+	bctrl 				# /
+	b noAddDamage
+noLink:
 	li r4, 0			# \
 	lis r12, 0x40a0		# |
 	stw r12, 0x8(r1)	# |

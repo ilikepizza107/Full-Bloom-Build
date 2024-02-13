@@ -1,6 +1,6 @@
 
 ################################################
-ItemEx Clone Engine v2.0 [Sammi Husky, Kapedani]
+ItemEx Clone Engine v2.2 [Sammi Husky, Kapedani]
 ################################################
 # Stages can override items
 # Character specific items
@@ -733,7 +733,7 @@ op addi r7, r1, 0x24    @ $809af2a0 # /
 # TODO: Kirby support
 ## Might be able to get current fighter/ftslot copied and then should be able to spawn item
 # TODO: Investigate having items know about costume id so it can differentiate between playing effects/sfx (maybe can make it a psa command?)
-# TODO: Bring back Peach having items like bomb if selected on item switch (disable the code that makes all items off == items set to none)
+# TODO: Bring back Peach having items like bomb if item switch is on
 
 op b 0xb4 @ $8084ea44   # skip preloading in ftDataProvider::comp
 op b 0x84 @ $8084e67c   # skip preloading in ftDataProvider:isFinish      
@@ -896,6 +896,14 @@ HOOK @ $809af2a8    # itManager::preloadItemKindArchive
     stw	r19, 0x8(r1)    # Pass commonParamId as extra parameter
 }
 
+HOOK @ $809aef04    # itManager::preloadItemKindArchive
+{
+    li r20, 8   # Original operation
+    cmplwi r17, 0xFFFF  # \ Check if variant id is in character specific item range
+    ble- %end%          # /
+    srawi r12, r17, 20  # \ ftSlotId = variant / 0x100000
+    addi r20, r12, 18   # / HeapType = ftSlotId + 18
+}
 HOOK @ $809bca28    # itArchive::__ct
 {
     lwz	r4, 0x1C(r25)   # Original operation
@@ -910,24 +918,24 @@ HOOK @ $809bca28    # itArchive::__ct
 
 HOOK @ $809bcbbc # itArchive::__ct
 {
-    li r6, 0    # Force clone = false
+    li r6, 0    # Force unique = false
     lwz r12, 0xc(r25)   # \
     cmplwi r12, 0xFFFF  # | Check if itVariation >= 0x10000
     ble+ %end%          # /
-    li r6, 1    # Force clone = true
+    li r6, 2    # Force unique = true
 }
 HOOK @ $809bcc18    # itArchive::__ct
 {
-    li r6, 0    # Force clone = false
+    li r6, 0    # Force unique = false
     lwz r12, 0xc(r25)   # \
     cmplwi r12, 0xFFFF  # | Check if itVariation >= 0x10000
     ble+ %end%          # /
-    li r6, 1    # Force clone = true
+    li r6, 2    # Force unique = true
 }
 HOOK @ $809bcc74    # itArchive::__ct
 {
     mr r5, r29  # Use heapType instead of only ItemResource
-    li r6, 0    # Force clone = false
+    li r6, 0    # Force unique = false
     lwz r12, 0xc(r25)   # itArchive->itVariation
     lwz r11, 0x8(r25)   # itArchive->itKind
     cmpwi r11, 0x62                 # \ check if itKind >= 0x62 (Pokemon and Assist Trophies)
@@ -938,7 +946,7 @@ notPokemonAssistVariant:
     cmplwi r12, 0xFFFF  # | Check if itVariation >= 0x10000
     ble+ %end%          # /
 forceClone:
-    li r6, 1    # Force clone = true    
+    li r6, 2    # Force unique = true    
 } 
 
 HOOK @ $8098a514    # BaseItem::__ct
@@ -1111,7 +1119,7 @@ HOOK @ $80990004    # BaseItem::notifyEventAnimCmd
     cmpwi r31, 0xFFFF   # \
     ble+ %end%          # /
     lwz r11, 0x8c4(r21) # baseItem->itVariant
-    srawi r11, r11, 20  # ftSlotId = current item variant / 0x100000
+    rlwinm r11,r11,0,8,11  # isolate ftSlotId (variant & 0x00f00000)
     add r31, r31, r11   # variant += ftSlotId
 }
 HOOK @ $80990328    # BaseItem::notifyEventAnimCmd
@@ -1488,6 +1496,8 @@ HOOK @ $809bca68    # itArchive::__ct
     divw r11, r23, r11  # /
     cmpwi r11, 0x2          # \ check if enemy container
     bne+ notEnemyContainer  # /
+enemyContainer:
+    li r11, 0x2
     lhz r0, 0x10BE(<itManagerReg>)  # \ 
     cmpwi r0, 0x96                  # | check if next assist is an enemy
     bne+ switchIsOff                # /
@@ -1508,15 +1518,22 @@ notEnemyContainer:
     rlwinm. r0, r0, 1, 31, 31   # | 
     bne+ end                    # /
 switchIsOff:
-    mulli r11, r11, 0x6 # \
-    sub r23, r23, r11   # / variant = (variant % 6)
+    mulli r9, r11, 0x6 # \
+    sub r23, r23, r9   # / variant = (variant % 6)
     addi r23, r23, 6        # \
     andis. r0, r12, 0x20    # | use container with items if on
     bne+ end                # /
-    addi r23, r23, 12        # \
+    addi r23, r23, 12       # \
     andis. r0, r12, 0x80    # | use container with explosion if on
     bne+ end                # /
-    b switchOff
+    subi r23, r23, 6
+    cmpwi r11, 2                # \ check if already checked enemy container
+    beq+ alreadyEnemyContainer  # /
+    andis. r0, r12, 0x40        # \ use container with enemy if on
+    bne+ enemyContainer         # /
+alreadyEnemyContainer:
+    subi r23, r23, 12       # use container with nothing in it
+    b end
 notContainer:
     cmpwi r23, 0x0      # \ check if not variant
     beq- end            # /
@@ -2643,6 +2660,7 @@ byte[356] | # Set bitfield order for itSwitch
 @ $8042C0D0
 CODE @ $80050bc0    # gmItSwitch::gmCheckItemSwitch
 {
+    li r9, 0x1              
     mulli r12, r4, 0x2  # \
     subi r5, r5, 16176  # |
     add r5, r5, r12     # | 
@@ -2650,17 +2668,47 @@ CODE @ $80050bc0    # gmItSwitch::gmCheckItemSwitch
     extsb r6, r6        # |
     lbz r0, 0x1(r5)     # /
     cmpwi r0, 0xFF      # \ Check if container
-    bne+ 0x714          # / 
+    beq- isContainer    # /
+    cmpwi r0, 0x2       # \ Check if assist
+    bne+ 0x708          # /
+isAssist:
+    cmpwi r4, 0x96      # \
+    beq- 0x700          # | check if Hammer Bro
+    cmpwi r4, 0x97      # |
+    beq- 0x6F8          # /
+    lwz r12, 0x4(r3)            # \
+    slwi r10, r9, 1             # |
+    and r11, r12, r10           # | 
+    neg r10, r11                # | Check if assist is on
+    or r10, r10, r11            # |
+    rlwinm. r12, r10, 1, 31, 31 # |
+    bne+ 0x6DC                  # /
+    lwz r12, 0x4(r3)            # \
+    slwi r10, r9, 3             # | 
+    and r11, r12, r10           # | Check if container is off
+    neg r10, r11                # | 
+    or r10, r10, r11            # |
+    rlwinm. r12, r10, 1, 31, 31 # |
+    beq- 0x6C0                  # /
+    lwz r12, 0x0(r3)            # \
+    slwi r10, r9, 22            # | 
+    and r11, r12, r10           # | Check if enemies are off
+    neg r10, r11                # | 
+    or r10, r10, r11            # |
+    rlwinm. r12, r10, 1, 31, 31 # |
+    beq- 0x6A4                  # /
+    b returnFalse
+isContainer: 
     li r0, 0x0
-    li r10, 0x1                 # \
-    lwz r12, 0x4(r3)            # |
-    slwi r10, r10, 3            # | 
+    lwz r12, 0x4(r3)            # \
+    slwi r10, r9, 3             # | 
     and r11, r12, r10           # | Check if container is on
     neg r10, r11                # | 
     or r10, r10, r11            # |
     rlwinm. r12, r10, 1, 31, 31 # |
-    bne+ 0x6F0                  # /
-    mr r3, r12
+    bne+ 0x680                  # /
+returnFalse:
+    li r3, 0
     blr          
 } 
 HOOK @ $80051340    # gmItSwitch::gmCheckItemSwitch
@@ -3414,9 +3462,9 @@ CODE @ $8004f3bc  # gmCheckAssistKindUseEnable
    blr         # /
 }
 
-#############################################################################
-ItemEx Mayhem and Passive Aggression Modes are Default Off on Boot [Kapedani]
-#############################################################################
+############################################################################
+ItemEx Mayhem and Passive Aggression Modes default to Off on Boot [Kapedani]
+############################################################################
 HOOK @ $8004ec70    # GameGlobal::initSettingsFromSaveData
 {
     stb    r4, 0x829(r3)   # Original operation
@@ -3430,8 +3478,22 @@ HOOK @ $8004c9d8    # GameGlobal::init
     stw    r30, 0x818(r3)  # Original operation
 }
 
+############################################################################################
+utArchive::reqLoad 4th Parameter as 2 forces read instead of clone [DukeItOut, Kapedani]
+############################################################################################
+HOOK @ $800453F0
+{
+    mr r5, r22            # Original operation
+    cmpwi r6, 0x2
+    bne+ %end%
+    lis r3, 0x8004      # \
+    ori r3, r3, 0x5448  # | Force file to not clone.
+    mtctr r3            # | 
+    bctr                # / 
+}
+
 ##################################
-Fighter Names Stored Internally at 80B519A0
+Fighter Internal Names at 80B519A0
 ##################################
 
 string "MARIO" @ $80B519A0

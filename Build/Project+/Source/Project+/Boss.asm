@@ -21,7 +21,7 @@ clearCPUtag:
 }
 
 ############################################################################
-[Project+] BOSS Characters in Special Modes v1.2 [DukeItOut, Kapedani]
+[Project+] BOSS Characters in Special Modes v1.3 [DukeItOut, Kapedani]
 # If someone has a tag containing the word "BOSS"
 # Then characters that do not will not experience
 # special mode's behaviors
@@ -91,7 +91,7 @@ hasBossTag:
 continueLoop:
 	addi r12, r12, 0x5C	# Go to next port!
 	subi r8, r8, 0x1
-	cmpwi r8, 0x1
+	cmpwi r8, 0x0
 	bgt+ loopCheck
 
 determineBossStatus:	

@@ -396,7 +396,7 @@ HOOK @ $8085B784
 	lis r12, 0x805A
 	lwz r12, 0xE0(r12)
 	lwz r12, 0x08(r12)
-	lbz r3, 0xE5(r3)	# 0x4D (+ 0x98)
+	lbz r3, 0xE5(r12)	# 0x4D (+ 0x98)
 	andi. r3, r3, 2	# bit used for buffer
 	li r3, 0		# \ If the handicap damage gauge rule is enabled . . . 
 	beq- %END%		# /
