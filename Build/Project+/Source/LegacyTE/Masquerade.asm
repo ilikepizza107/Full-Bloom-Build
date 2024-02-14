@@ -82,6 +82,22 @@ byte 50 		    @ $80692DA7
 byte 50 		    @ $80692507
 byte[4] 0x30, 0x34, 0x64, 0 @ $806A17D8
 
+################################################################
+[Brawl-Themed P+] Stage Select Screen Supports 50CC v1.0.1 [QuickLava]
+################################################################
+# Stage Select Stock Icons 50CC Fix
+HOOK @ $806b2ffc
+{
+  	cmpwi r25, 0x36;   bne+ notWarioman		# 0x36 isn't a mistake.
+ 	li r3, 9000; b %END%					# Not sure why it's not 0x35 like in the above codes.
+notWarioman:
+ 	mulli r3, r3, 50
+}
+# Stage Select Random Player Stock Icons Fix
+# Overwrites the old constants the game used as the frames for Random Icons with our own 50CC compliant ones.
+# First value should be left as is, second value should be the first plus how many colored random icons you need!
+float[2] 9051.0f, 9055.0f @ $806B91B0
+
 ###################################################################
 [Legacy TE] Upload Character Masquerade Data At Startup [DukeItOut]
 ###################################################################
