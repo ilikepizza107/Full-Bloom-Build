@@ -5,6 +5,11 @@
 op cmplwi r0, 0x30 @ $8018CFC4
 op blt- 0x34	   @ $8018CFC8
 
+###############################################
+STGRESULT.PAC expansion (+3.5MB) [DukeItOut]
+###############################################
+int 0x64CE00 @ $80422334
+
 .include Source/LegacyTE/Replays.asm
 
 .include Source/Project+/StageFiles.asm
