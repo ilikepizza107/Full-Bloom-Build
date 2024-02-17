@@ -47,6 +47,7 @@ SHEIK
 ICE CLIMBERS
 
 MARTH
+24 - Ronan Marth by ilikepizza107
 45 - Artemis Marth by ilikepizza107
 
 MR. GAME & WATCH
@@ -54,6 +55,7 @@ MR. GAME & WATCH
 FALCO
 
 GANONDORF
+26 - Che Ganondorf by DHS7
 40 - joey Ganondorf by DHS7
 
 META KNIGHT
@@ -85,7 +87,6 @@ DEDEDE
 LUCARIO
 
 IKE
-AltZ - Berserk Armor Guts by ilikepizza107, with credit to ASideOfChidori and buu342 for the models and Rocky38 for importing (optimized by ilikepizza107)
 
 R.O.B.
 
@@ -131,7 +132,7 @@ MENUS
 
 New "Ready To Fight!" Model by Xenthos
 
-Magicant results screen by ilikepizza107, with credit to NNEBF
+Results screen by ilikepizza107, with credit to Tatsuya
 
 CSS + SSS by ilikepizza107
 
