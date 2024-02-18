@@ -118,6 +118,9 @@ KNUCKLES
 STAGES
 ########################
 
+BATTLEFIELD
+Base - Daytime Battlefield by ilikepizza107
+
 POKEMON STADIUM 2
 Base - Full Bloom PS2 by ilikepizza107
 
