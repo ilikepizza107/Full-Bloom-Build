@@ -586,6 +586,9 @@ not_found:
 	lhz r23, 6(r12)			# \ Get offset to param file names
 	add r23, r23, r12		# /
 	add r23, r23, r29		# Get the title address
+
+.include Source/Stagelists/StageSpecificResults.asm
+
 	lis r12, 0x8053			# Stage files write to 8053F000
 	ori r12, r12, 0xF000	#	
 	
