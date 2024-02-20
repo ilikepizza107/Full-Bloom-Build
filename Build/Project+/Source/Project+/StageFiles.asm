@@ -614,7 +614,9 @@ StageResults:
 	
 	cmpwi r6, 0x01; li r5, 0x4246; beq StoreString	# Battlefield
 	cmpwi r6, 0x02; li r5, 0x4644; beq StoreString	# Final Destination
+	cmpwi r6, 0x03; li r5, 0x4453; beq StoreString	# Delfino Secret
 	cmpwi r6, 0x04; li r5, 0x4C4D; beq StoreString	# Luigi's Mansion
+	cmpwi r6, 0x05; li r5, 0x4D43; beq StoreString	# Metal Cavern
 	cmpwi r6, 0x09; li r5, 0x5454; beq StoreString	# Temple of Time
 	cmpwi r6, 0x0C; li r5, 0x4648; beq StoreString	# Frigate Husk
 	cmpwi r6, 0x0D; li r5, 0x5949; beq StoreString	# Yoshi's Island
@@ -622,7 +624,16 @@ StageResults:
 	cmpwi r6, 0x2D; li r5, 0x444C; beq StoreString	# Dream Land
 	cmpwi r6, 0x37; li r5, 0x5452; beq StoreString	# Training Room
 	cmpwi r6, 0x47; li r5, 0x4754; beq StoreString	# Golden Temple
-	cmpwi r6, 0x2E; li r5, 0x5053; beq StoreString	# PS2
+	cmpwi r6, 0x2E	# PS2
+
+PS2_Results:
+	li r5, 0x4642			# Use "FB"
+	%lwi(r12, 0x8053EFBA)	# Get ASL ID
+	lhz r12, 0(r12)
+	andi. r12, r12, 0x0100	# Check if R is pressed
+	beq StoreString			#
+	li r5, 0x5053			# If so, use "PS"
+	b StoreString
 
 notResults:
 	cmpwi r6, ConfigID
