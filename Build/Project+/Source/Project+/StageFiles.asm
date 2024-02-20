@@ -600,6 +600,13 @@ not_found:
     ori     <reg>, <reg>, temp_Lo
 	lbz <reg>, 0(<reg>)
 }
+.macro lwi(<reg>, <val>)
+{
+    .alias  temp_Hi = <val> / 0x10000
+    .alias  temp_Lo = <val> & 0xFFFF
+    lis     <reg>, temp_Hi
+    ori     <reg>, <reg>, temp_Lo
+}
 .alias ConfigID = 0x26
 .alias ResultsID = 0x28	
     
@@ -630,7 +637,7 @@ PS2_Results:
 	li r5, 0x4642			# Use "FB"
 	%lwi(r12, 0x8053EFBA)	# Get ASL ID
 	lhz r12, 0(r12)
-	andi. r12, r12, 0x0100	# Check if R is pressed
+	andi. r12, r12, 0x0020	# Check if R is pressed
 	beq StoreString			#
 	li r5, 0x5053			# If so, use "PS"
 	b StoreString
