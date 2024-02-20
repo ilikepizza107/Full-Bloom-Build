@@ -1,17 +1,6 @@
 #################################
 Stage File System Neo [DukeItOut]
 #################################
-# Load byte at given address
-.macro loadByte(<reg>, <val>)
-{
-    .alias  temp_Hi = <val> / 0x10000
-    .alias  temp_Lo = <val> & 0xFFFF
-    lis     <reg>, temp_Hi
-    ori     <reg>, <reg>, temp_Lo
-	lbz <reg>, 0(<reg>)
-}
-.alias ConfigID = 0x26
-.alias ResultsID = 0x28
 	.BA<-FileFormatSetup
 	.BA->$8053EFE0
 	.BA<-FileNameFolder
@@ -602,10 +591,23 @@ not_found:
 # Stage-Specific Results #
 # [mawwk, ilikepizza107] #
 ##########################
-	%loadByte(r6, 0x8053EF81)	# r6: ASL stage ID
+# Load byte at given address
+.macro loadByte(<reg>, <val>)
+{
+    .alias  temp_Hi = <val> / 0x10000
+    .alias  temp_Lo = <val> & 0xFFFF
+    lis     <reg>, temp_Hi
+    ori     <reg>, <reg>, temp_Lo
+	lbz <reg>, 0(<reg>)
+}
+.alias ConfigID = 0x26
+.alias ResultsID = 0x28	
+    
+    %loadByte(r6, 0x8053EF81)	# r6: ASL stage ID
 	mr r7, r23
 	cmpwi r6, ResultsID
 	bne notResults
+	addi r7, r7, 7			# "Results"
 
 StageResults:
 	%loadByte(r6, 0x9017F42D)	# Load previous stage ID
@@ -620,7 +622,7 @@ StageResults:
 	cmpwi r6, 0x2D; li r5, 0x444C; beq StoreString	# Dream Land
 	cmpwi r6, 0x37; li r5, 0x5452; beq StoreString	# Training Room
 	cmpwi r6, 0x47; li r5, 0x4754; beq StoreString	# Golden Temple
-	cmpwi r6, 0x2E	# PS2
+	cmpwi r6, 0x2E; li r5, 0x5053; beq StoreString	# PS2
 
 notResults:
 	cmpwi r6, ConfigID
@@ -662,7 +664,16 @@ YIParamCheck:
 	addi r7, r7, 13			# "Yoshis_Island"
 
 StartCompare:
-	lis r4, 0x6C74; ori r4, r4, 0x7300	# "lts" followed by null terminator
+	lis r4, 0x5F44; ori r4, r4, 0x4600	# "_DF" followed by null terminator
+
+CheckParamFilename:
+	lwz r6, 0(r7)			# \ Compare param filename with "_DF."
+	cmpw r6, r4				# /
+	andi. r6, r6, 0xFF		# If terminator char (00) reached,
+	beq end 				# give up
+	
+	addi r7, r7, 1			# Otherwise, check the next character
+	b CheckParamFilename
 
 StoreString:
 	sth r5, 1(r7)			# Replace with new suffix
@@ -671,7 +682,7 @@ end:
 
 	lis r12, 0x8053			# Stage files write to 8053F000
 	ori r12, r12, 0xF000	#	
-	
+
 	addi r3, r1, 0x90
 	lis r4, 0x8048			#
 	ori r4, r4, 0xEFF4		# %s%s%s%s	
