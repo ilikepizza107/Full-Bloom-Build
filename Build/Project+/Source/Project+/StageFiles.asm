@@ -621,12 +621,16 @@ StageResults:
 	
 	cmpwi r6, 0x01; li r5, 0x4246; beq StoreString	# Battlefield
 	cmpwi r6, 0x02; li r5, 0x4644; beq StoreString	# Final Destination
+	cmpwi r6, 0x03; li r5, 0x4453; beq StoreString	# Delfino Secret
 	cmpwi r6, 0x04; li r5, 0x4C4D; beq StoreString	# Luigi's Mansion
+	cmpwi r6, 0x05; li r5, 0x4D43; beq StoreString	# Metal Cavern
 	cmpwi r6, 0x09; li r5, 0x5454; beq StoreString	# Temple of Time
 	cmpwi r6, 0x0C; li r5, 0x4648; beq StoreString	# Frigate Husk
 	cmpwi r6, 0x0D; li r5, 0x5949; beq StoreString	# Yoshi's Island
 	cmpwi r6, 0x21; li r5, 0x5356; beq StoreString	# Smashville
 	cmpwi r6, 0x2D; li r5, 0x444C; beq StoreString	# Dream Land
+    cmpwi r6, 0x37; li r5, 0x5452; beq StoreString  # Training Room
+    cmpwi r6, 0x47; li r5, 0x4754; beq StoreString  # Golden Temple
     cmpwi r6, 0x2E; li r5, 0x4446; bne StoreString  # Default
 
 PS2_Results:
@@ -641,6 +645,41 @@ PS2_Results:
 notResults:
 	cmpwi r6, ConfigID
 	beq end
+
+# DelfinoParamCheck:
+#	cmpwi r6, 0x03
+#	bne MetalParamCheck	
+#	addi r7, r7, 14			# "Delfino_Secret"
+#	b StartCompare
+
+# MetalParamCheck:
+#	cmpwi r6, 0x05
+#	bne SVParamCheck	
+#	addi r7, r7, 12			# "Metal_Cavern"
+#	b StartCompare
+
+# SVParamCheck:
+#	cmpwi r6, 0x21
+#	bne PS2ParamCheck	
+#	addi r7, r7, 10			# "Smashville"
+#	b StartCompare
+
+# PS2ParamCheck:
+#	cmpwi r6, 0x2E
+#	bne TOTParamCheck
+#	addi r7, r7, 17			# "Pokemon_Stadium_2"
+#	b StartCompare
+
+# TOTParamCheck:
+#	cmpwi r6, 0x09		
+#	bne YIParamCheck	
+#	addi r7, r7, 14			# "Temple_of_Time"
+#	b StartCompare	
+
+# YIParamCheck:
+#	cmpwi r6, 0x0D		
+#	bne StartCompare
+#	addi r7, r7, 13			# "Yoshis_Island"
 
 StartCompare:
 	lis r4, 0x5F44; ori r4, r4, 0x4600	# "_DF" followed by null terminator
