@@ -6,6 +6,13 @@ Battlefield.param
 	Battlefield.tlst
 
 ################
+Battlefield_DPAD.param
+
+	STGBATTLEFIELD.pac
+	st_battle.rel
+	Battlefield_DPAD.tlst
+
+################
 Battlefield_L.param
 
 	STGBATTLEFIELD_L_BF_MELEE.pac
@@ -496,6 +503,22 @@ Dream_Land.param
 	SFX / GFX: 0x006C / 0x005E
 
 ################
+Dream_Land_DPAD.param
+
+	STGDREAMLAND.pac
+	st_dreamland64.rel
+	Dream_Land_DPAD.tlst
+	SFX / GFX: 0x006C / 0x005E
+
+################
+Dream_Land_DPADUP.param
+
+	STGDREAMLAND.pac
+	st_dreamland64.rel
+	Dream_Land_DPADUP.tlst
+	SFX / GFX: 0x006C / 0x005E
+
+################
 Dream_Land_L.param
 
 	STGDREAMLAND_L_DL_WINTER.pac
@@ -543,6 +566,14 @@ Edit_Stage.param
 
 ################
 Final_Destination.param
+
+	STGFINALDESTINATION.pac
+	st_final.rel
+	Final_Destination.tlst
+	SFX / GFX: 0xFFFF / 0x0033
+
+################
+Final_Destination_DPAD.param
 
 	STGFINALDESTINATION.pac
 	st_final.rel
@@ -707,12 +738,19 @@ Frigate_Husk.param
 	SFX / GFX: 0x0056 / 0x0032
 
 ################
+Frigate_Husk_DPAD.param
+
+	STGFRIGATEHUSK.pac
+	st_final.rel
+	Frigate_Orpheon_DPAD.tlst
+	SFX / GFX: 0x0056 / 0x0032
+
+################
 Frigate_Husk_L.param
 
-	STGFRIGATEHUSK_L_PHENDRANA.pac
-	st_battle.rel
-	Phendrana.tlst
-	SFX / GFX: 0x0056 / 0x0032
+	STGFRIGATEHUSK_L_FH_HYRULE.pac
+	st_final.rel
+	Frigate_Orpheon.tlst
 
 ################
 Frigate_Husk_R.param
@@ -1041,6 +1079,14 @@ Luigis_Mansion.param
 	STGLUIGISMANSION.pac
 	st_final.rel
 	Luigis_Mansion.tlst
+	SFX / GFX: 0x004E / 0x0035
+
+################
+Luigis_Mansion_DPAD.param
+
+	STGLUIGISMANSION.pac
+	st_final.rel
+	Luigis_Mansion_DPAD.tlst
 	SFX / GFX: 0x004E / 0x0035
 
 ################
@@ -1502,6 +1548,14 @@ Pokemon_Stadium_2.param
 	SFX / GFX: 0x0059 / 0x0045
 
 ################
+Pokemon_Stadium_2_DPAD.param
+
+	STGPOKEMONSTADIUM.pac
+	st_stadium_static.rel
+	Pokemon_Stadium_2_DPAD.tlst
+	SFX / GFX: 0x0059 / 0x0045
+
+################
 Pokemon_Stadium_2_L.param
 
 	STGPOKEMONSTADIUM_L_ULTRA.pac
@@ -1512,7 +1566,7 @@ Pokemon_Stadium_2_L.param
 ################
 Pokemon_Stadium_2_R.param
 
-	STGPOKEMONSTADIUM_R_RADIANT.pac
+	STGPOKEMONSTADIUM_R_DEFAULT.pac
 	st_stadium_static.rel
 	Pokemon_Stadium_2.tlst
 	SFX / GFX: 0x0059 / 0x0045
@@ -1646,9 +1700,79 @@ Rest_Area.param
 	Rest_Area.tlst
 
 ################
-Results.param
+Results_BF.param
+
+	STGRESULT_STGBATTLEFIELD.pac
+	
+	Results.tlst
+
+################
+Results_DF.param
 
 	STGRESULT.pac
+	
+	Results.tlst
+
+################
+Results_DL.param
+
+	STGRESULT_STGDREAMLAND.pac
+	
+	Results.tlst
+
+################
+Results_FB.param
+
+	STGRESULT_STGPOKEMONSTADIUM2.pac
+	
+	Results.tlst
+
+################
+Results_FD.param
+
+	STGRESULT_STGFINALDESTINATION.pac
+	
+	Results.tlst
+
+################
+Results_FH.param
+
+	STGRESULT_STGFRIGATEHUSK.pac
+	
+	Results.tlst
+
+################
+Results_LM.param
+
+	STGRESULT_STGLUIGISMANSION.pac
+	
+	Results.tlst
+
+################
+Results_PS.param
+
+	STGRESULT_STGPOKEMONSTADIUM2DF.pac
+	
+	Results.tlst
+
+################
+Results_SV.param
+
+	STGRESULT_STGSMASHVILLE.pac
+	
+	Results.tlst
+
+################
+Results_TT.param
+
+	STGRESULT_STGTEMPLEOFTIME.pac
+	
+	Results.tlst
+
+################
+Results_YI.param
+
+	STGRESULT_STGYOSHISISLAND.pac
 	
 	Results.tlst
 
@@ -1846,8 +1970,26 @@ Smashville.param
 	- STGSMASHVILLE_04_MIDNIGHT.PAC
 	- STGSMASHVILLE_04_MIDNIGHT.PAC
 
-	st_village.rel
+	st_village2023.rel
 	Smashville.tlst
+	SFX / GFX: 0x0064 / 0x0032
+	Flags: OldSubstage
+
+################
+Smashville_DPAD.param
+
+	[Substages / Normal]
+	- STGSMASHVILLE_00_MORNING.PAC
+	- STGSMASHVILLE_01_NOON.PAC
+	- STGSMASHVILLE_02_DUSK.PAC
+	- STGSMASHVILLE_03_NIGHT.PAC
+	- STGSMASHVILLE_03_NIGHT.PAC
+	- STGSMASHVILLE_03_NIGHT.PAC
+	- STGSMASHVILLE_04_MIDNIGHT.PAC
+	- STGSMASHVILLE_04_MIDNIGHT.PAC
+
+	st_village2023.rel
+	Smashville_DPAD.tlst
 	SFX / GFX: 0x0064 / 0x0032
 	Flags: OldSubstage
 
@@ -1855,7 +1997,7 @@ Smashville.param
 Smashville_L.param
 
 	STGSMASHVILLE_L_SV_SAKURA.pac
-	st_village.rel
+	st_village2023.rel
 	Smashville_Sakura.tlst
 	SFX / GFX: 0x0064 / 0x0032
 
@@ -1863,7 +2005,7 @@ Smashville_L.param
 Smashville_R.param
 
 	STGSMASHVILLE_R_SV_BEACH.pac
-	st_village.rel
+	st_village2023.rel
 	Smashville_Tropical.tlst
 	SFX / GFX: 0x0064 / 0x0032
 
@@ -1880,7 +2022,7 @@ Smashville_Y.param
 	- STGSMASHVILLE_04_MIDNIGHT.PAC
 	- STGSMASHVILLE_04_MIDNIGHT.PAC
 
-	st_village.rel
+	st_village2023.rel
 	Smashville_Concert.tlst
 	SFX / GFX: 0x0064 / 0x0032
 	Flags: OldSubstage
@@ -1889,7 +2031,7 @@ Smashville_Y.param
 Smashville_YL.param
 
 	STGSMASHVILLE_L_SV_SAKURA.pac
-	st_village.rel
+	st_village2023.rel
 	Smashville_Concert.tlst
 	SFX / GFX: 0x0064 / 0x0032
 	Flags: OldSubstage
@@ -1898,7 +2040,7 @@ Smashville_YL.param
 Smashville_YR.param
 
 	STGSMASHVILLE_R_SV_BEACH.pac
-	st_village.rel
+	st_village2023.rel
 	Smashville_Concert.tlst
 	SFX / GFX: 0x0064 / 0x0032
 	Flags: OldSubstage
@@ -1907,7 +2049,7 @@ Smashville_YR.param
 Smashville_YZ.param
 
 	STGSMASHVILLE_Z_SV_OCEAN.pac
-	st_village.rel
+	st_village2023.rel
 	Smashville_Concert.tlst
 	SFX / GFX: 0x0064 / 0x0032
 	Flags: OldSubstage
@@ -1916,7 +2058,7 @@ Smashville_YZ.param
 Smashville_Z.param
 
 	STGSMASHVILLE_Z_SV_OCEAN.pac
-	st_village.rel
+	st_village2023.rel
 	Smashville_Tropical.tlst
 	SFX / GFX: 0x0064 / 0x0032
 
@@ -2014,6 +2156,13 @@ Temple_of_Time.param
 	STGTEMPLEOFTIME.pac
 	st_final.rel
 	Temple_of_Time.tlst
+
+################
+Temple_of_Time_DPAD.param
+
+	STGTEMPLEOFTIME.pac
+	st_final.rel
+	Temple_of_Time_DPAD.tlst
 
 ################
 Temple_of_Time_L.param
@@ -2249,6 +2398,14 @@ Yoshis_Island.param
 	STGYOSHISISLAND.pac
 	st_crayon_noshyguy.rel
 	Yoshis_Island.tlst
+
+################
+Yoshis_Island_DPAD.param
+
+	STGYOSHISISLAND.pac
+	st_crayon_noshyguy.rel
+	Yoshis_Island_DPAD.tlst
+	SFX / GFX: 0x004C / 0x0032
 
 ################
 Yoshis_Island_L.param
