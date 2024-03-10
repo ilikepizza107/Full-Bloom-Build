@@ -1155,8 +1155,8 @@ Z     - Ceres Space Colony X by DukeItOut and nnebf, optimizations by Layell
 VENUS LIGHTHOUSE
 Base - Venus Lighthouse by LlamaJuice, Mewtwo2000, Grand Azel with credit to MewTwo2000, Syvkal, Segtendo, Eternal Yoshi, Shin F., Ryztiq
 L    - Mercury Lighthouse by Sandfall, Grand Azel with credit to LlamaJuice, mawwwk and mckayr12
-R    - Venus Lighthouse WW by nnebf, Electropolitan, and Grand Azel with credit to LlamaJuice, Mewtwo2000, Syvkal, Segtendo, Eternal Yoshi, Shin F., Ryztiq, PMDT
-Z    - Mercury Lighthouse WW by nnebf, Electropolitan, and Grand Azel with credit to LlamaJuice, Mewtwo2000, mawwwk, mckayr12, Syvkal, Segtendo, Eternal Yoshi, Shin F., Ryztiq, PMDT
+R    - Venus Lighthouse [Yoshi's Island '23 1:1] by nnebf, Electropolitan, and Grand Azel with credit to LlamaJuice, Mewtwo2000, Syvkal, Segtendo, Eternal Yoshi, Shin F., Ryztiq, PMDT.  Converted to YI 1:1 by Layell
+Z    - Mercury Lighthouse WW by nnebf, Electropolitan, and Grand Azel with credit to LlamaJuice, Mewtwo2000, mawwwk, mckayr12, Syvkal, Segtendo, Eternal Yoshi, Shin F., Ryztiq, PMDT.
 		
 SKY SANCTUARY
 Base - Sky Sanctuary Zone by nnebf, GRAND AZEL, and Yorch, credit to Burrotis/SoN1c2001 for the Death Egg render and Noserus for the original stage 
@@ -1196,7 +1196,7 @@ R - Floats Stadium by MarioDox with credit to BullockDS, coolguy, AlGeorgeRomo, 
 
 PIRATE SHIP
 L - Ganon's Tower by LegacyWolf with credit to NotZac, RARWRzilla22, mawwwk, Cynapse and Kurukato, Modding Workshop, Smash3c, Smash3, Brawl Vault Vigilantes and KCMM's Discord, brstms: fireluigi12, genandnic, GalaxyManX9, Muggshotter
-R - Ancient Castle Ware	by Electropolitan with credit to iwantgames, DukeItOut, Mewtwo2000, Akeno/Archer, Super Smash Bros., Legend of Jesse, Bluebreon, xxWutzMercyxx, and Dranakar
+R - Ancient Castle [Yoshi's Island '23 1:1] by Electropolitan with credit to iwantgames, DukeItOut, Mewtwo2000, Akeno/Archer, Super Smash Bros., Legend of Jesse, Bluebreon, xxWutzMercyxx, and Dranakar. Converted to YI 1:1 by Layell
 Z - Molgera's Castle by WorseDoughnut with credit to Ryztiq, LlamaJuice, Scout, soopercool101
 
 VENOM

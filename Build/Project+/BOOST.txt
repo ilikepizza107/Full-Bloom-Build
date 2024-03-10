@@ -5,11 +5,6 @@
 op cmplwi r0, 0x30 @ $8018CFC4
 op blt- 0x34	   @ $8018CFC8
 
-###############################################
-STGRESULT.PAC expansion (+3.5MB) [DukeItOut]
-###############################################
-int 0x64CE00 @ $80422334
-
 .include Source/LegacyTE/Replays.asm
 
 .include Source/Project+/StageFiles.asm
@@ -67,6 +62,7 @@ int 0x64CE00 @ $80422334
 .include Source/Project+/IndependentSub.asm
 .include Source/Project+/TrainingMode.asm
 .include Source/Project+/VictoryCamera.asm
+.include Source/Project+/ResultsSkip.asm
 
 .include Source/LegacyTE/ASLHelper.asm
 .include Source/LegacyTE/LoadFlags.asm
@@ -88,9 +84,6 @@ int 0x64CE00 @ $80422334
 
 #.include Source/Project+/TexFlags.asm	# This code is currently having issues interacting with the Code Menu. Included 
 					# to allow an understanding of how it will mechanically work in the future.
-
-.include Source/Stagelists/RandomStagelist.asm
-.include Source/Extras/HoldStartResults.asm
 
 .include Source/Extras/Console.asm	# Only use this on a Wii or Wii U! The codes in this are necessary for the slower specifications of the actual console.
 #.include Source/Extras/Netplay.asm	# Only use this in Dolphin! The codes in this will result in bad behavior on the Wii!
