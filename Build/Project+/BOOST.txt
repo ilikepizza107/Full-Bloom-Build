@@ -5,6 +5,12 @@
 op cmplwi r0, 0x30 @ $8018CFC4
 op blt- 0x34	   @ $8018CFC8
 
+###############################################
+Single CSS StockIcon (InfStc.001) [ASF1nk]
+###############################################
+* 046A17D4 74632E30
+* 046A17D8 30310000
+
 .include Source/LegacyTE/Replays.asm
 
 .include Source/Project+/StageFiles.asm
