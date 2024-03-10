@@ -2,7 +2,13 @@
 PSA
 ################
 
-Custom GFX for Artemis Marth by SSK and KingJigglypuff, ilikepizza107
+Custom GFX for Evil Lesbian Zelda - Evil Lesbian, ilikepizza107
+ - PSA Edited: Sub Action 48, GFX; Sub Action 4E, GFX; Sub Action 50, GFX; Sub Action 54, GFX; Sub Action 58, Main; Sub Action 5D, Main; Sub Action 5D, GFX; Sub Action 60, GFX; Sub Action 62, GFX; Sub Action 63, GFX; Sub Action 64, GFX; Sub Action 65, GFX; Sub Action 66, GFX; Sub Action 67, GFX
+
+Custom GFX for Star Lucas - Star, ilikepizza107
+ - PSA Edited: Sub Action 48, GFX; Sub Action 49, GFX; Sub Action 58, Main; Sub Action 62, GFX; Sub Action 63, GFX; Sub Action 61, Other; Sub Action 66, GFX, Sub Action 66, Other
+
+Custom GFX for Crona Marth & Artemis Marth by SSK and KingJigglypuff, ilikepizza107
  - PSA Added: Subroutine 2x7950, 2x7BF8, 2x88C0
  - PSA Edited: Sub Actions 48, GFX; 49, GFX; 4E, GFX; 50, GFX; 54, GFX; 55, GFX; 58, GFX; 5D, GFX; 60, GFX; 62, GFX; 63, GFX; 64, GFX; 65, GFX; 66, GFX; B0, GFX; B9, GFX; D7, GFX; DC, GFX; E7, GFX; 1D0, GFX; 1D1, GFX; 1D6, GFX; 1D7, GFX; 1D8, GFX; 1D9, GFX; 1DA, GFX; 1DB, GFX; 1DC, GFX; 1DD, GFX; 1DE, GFX; 1E8, GFX; 1EB, GFX; 1EE, GFX; 1EF, GFX; 1F0, GFX; 1F1, GFX; 1F2, GFX; 1F3, GFX; 1F4, GFX
 
@@ -17,13 +23,22 @@ DONKEY KONG
 LINK
 
 SAMUS
+40 - GooSluj Samus by ilikepizza107
+45 - Samus Brawl Clone by SJS [https://gamebanana.com/mods/247126]
 
 YOSHI
 
 KIRBY
 25 - Shenanigans Kirby by ilikepizza107
+26 - influenza Kirby by influenza
+45 - Star Red Kirby by influenza
+46 - Star Kirby by influenza
+47 - Star Green Kirby by influenza
 
 FOX
+09 - Silver Fox by Baka
+10 - Star Blue Fox by ilikepizza107
+11 - Star Green Fox by ilikepizza107
 40 - Drip Fox by Wyld
 
 PIKACHU
@@ -32,8 +47,10 @@ LUIGI
 
 CAPTAIN FALCON
 07 - Black Captain Falcon by SJ
+08 - shad Captain Falcon by influenza
 35 - Stude Captain Falcon by Motobug
 36 - SoulOfficer Falcon by influenza
+37 - ORLY Captain Falcon by Wyld
 
 NESS
 30 - Not Chris Ness by ilikepizza107
@@ -43,16 +60,25 @@ BOWSER
 PEACH
 
 ZELDA
+30 - Tuck Zelda by Tuck, ilikepizza107, using Hulkalex's Skyward Sword Zelda model [http://www.mediafire.com/file/1b0t0ned2djzmg2/Zelda+Skyloft.zip/file]
+31 - Evil Lesbian Zelda by Evil Lesbian, ilikepizza107, using Hulkalex's Skyward Sword Zelda model [http://www.mediafire.com/file/1b0t0ned2djzmg2/Zelda+Skyloft.zip/file]
+32 - KWAM Zelda by ilikepizza107, using Hulkalex's Skyward Sword Zelda model [http://www.mediafire.com/file/1b0t0ned2djzmg2/Zelda+Skyloft.zip/file]
 
 SHEIK
+30 - RoSheik by jetfantastic [http://forums.kc-mm.com/Gallery/BrawlView.php?Number=213577]
+31 - Evil Lesbian Sheik by Evil Lesbian, ilikepizza107
+32 - KWAM Sheik by ilikepizza107
 
 ICE CLIMBERS
+40 - phresh Ice Climbers by FingerStripes
 
 MARTH
 24 - Ronan Marth by ilikepizza107
+34 - Crona Marth by influenza
 45 - Artemis Marth by ilikepizza107
 
 MR. GAME & WATCH
+17 - Rise GnW
 
 FALCO
 
@@ -67,12 +93,18 @@ META KNIGHT
 PIT
 
 ZERO SUIT SAMUS
+40 - GooSluj ZSS by ilikepizza107
+45 - Pink Dark ZSS by Hulkalex, with credit to RedipsTheCooler [https://www.mediafire.com/file/bvwgvbx1h9jgsgf/Dark+Zero+Suit+Samus+Recolor.zip/file]
 
 OLIMAR
 40 - CP9 Olimar by FingerStripes
 45 - joey Olimar by Motobug
 
 LUCAS
+40 - Star Red Lucas by Star, SJS
+41 - Star Blue Lucas by Star, SJS
+42 - Star Green Lucas by Star, SJS
+45 - Shadowhawke Lucas by SJS
 
 DIDDY KONG
 
@@ -83,15 +115,20 @@ CHARIZARD
 SQUIRTLE
 
 IVYSAUR
+10 - Maofever Ivy by Maofever, with credit to ilikepizza107
 
 DEDEDE
+11 - Ripple Dedede by ???
 
 LUCARIO
+25 - influenza Lucario by influenza, with credit to Chucklez, LnktheWolf, and PMDT
 
 IKE
+24 - influezna Ike by influenza
 
 R.O.B.
 07 - Xtreme ROB by ilikepizza107
+08 - Comb ROB by Wyld
 
 JIGGLYPUFF
 
@@ -100,14 +137,17 @@ WARIO
 ROY
 
 TOON LINK
+08 - Shrug Toon Link by Wyld
 
 WOLF
 
 SNAKE
 06 - LTWB Snake by SoulOfficer
 07 - Autumn Snake by Autumn
+08 - MVZY Snake by Wyld
 
 SONIC
+40 - Wyld Sonic by Wyld
 
 WARIO MAN
 

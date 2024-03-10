@@ -1,5 +1,18 @@
 ################################
 
+New to P+ 2.5.2:
+
+################################
+ItmPowderBoxParam.pac
+
+Action 7:
+	Basic Variable Set: LA-Basic[10] = -1	# Disable item timer for granting hurtboxes, this is an exploding action!
+
+	Body Collision: Intangible No Flashing	# Make impossible to collide with, as it could while blowing up.
+
+
+################################
+
 New to P+ 2.5:
 
 ################################
@@ -15,7 +28,7 @@ Action C:
 Subaction 4 - GFX:
 	Graphic Effect: File#=0, Graphic=72, Size=0.82 # Adds sparks to the explosion
 Subaction 7/8 - GFX:
-	03000100: 0x5				# Force onto transparency layer for glow effect to work properly.
+	03000100: 0x3				# Force onto transparency layer for glow effect to work properly.
 
 ItmDoseisanParam.pac
 
