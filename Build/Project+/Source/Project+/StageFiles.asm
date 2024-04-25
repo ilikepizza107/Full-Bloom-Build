@@ -608,10 +608,10 @@ not_found:
     ori     <reg>, <reg>, temp_Lo
 }
 
-Random:
-	lwz r11, -0x4364(r13)
-	rlwinm. r11, r11, 0, 31, 31
-	beq end
+# Random:
+#	lwz r11, -0x4364(r13)
+#	rlwinm. r11, r11, 0, 31, 31
+#	beq end
 
 .alias ConfigID = 0x26
 .alias ResultsID = 0x28	
