@@ -105,6 +105,9 @@ META KNIGHT
 40 - Yuko MK by DHS7
 
 PIT
+40 - Star Red Pit by Star, SJS
+41 - Star Pit by Star, SJS
+42 - Star Green Pit by Star, SJS
 
 ZERO SUIT SAMUS
 40 - GooSluj ZSS by ilikepizza107
