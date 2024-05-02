@@ -32,6 +32,7 @@ LINK
 SAMUS
 40 - GooSluj Samus by ilikepizza107
 45 - Samus Brawl Clone by SJS [https://gamebanana.com/mods/247126]
+50 - Nihil Samus by ilikepizza107
 
 YOSHI
 30 - Whoratio Yoshi by Z-Stick and ilikepizza107
@@ -47,6 +48,7 @@ FOX
 09 - Silver Fox by Baka
 10 - Star Blue Fox by ilikepizza107
 11 - Star Green Fox by ilikepizza107
+12 - Amy! Fox
 36 - GAGE Fox by ilikepizza107
 40 - Drip Fox by Wyld
 
@@ -60,21 +62,27 @@ CAPTAIN FALCON
 35 - Stude Captain Falcon by Motobug
 36 - SoulOfficer Falcon by influenza
 37 - ORLY Captain Falcon by Wyld
+40 - SunnyKnight Falcon by Autumn
 
 NESS
+25 - Ntire Ness by ilikepizza107
 30 - Not Chris Ness by ilikepizza107
 
 BOWSER
+11 - Nihil Bowser by ilikepizza107
+12 - American Bowser Bowser
 
 PEACH
 
 ZELDA
+09 - Amy! Zelda
 30 - Tuck Zelda by Tuck, ilikepizza107, using Hulkalex's Skyward Sword Zelda model [http://www.mediafire.com/file/1b0t0ned2djzmg2/Zelda+Skyloft.zip/file]
 31 - Evil Lesbian Zelda by Evil Lesbian, ilikepizza107, using Hulkalex's Skyward Sword Zelda model [http://www.mediafire.com/file/1b0t0ned2djzmg2/Zelda+Skyloft.zip/file]
 32 - KWAM Zelda by ilikepizza107, using Hulkalex's Skyward Sword Zelda model [http://www.mediafire.com/file/1b0t0ned2djzmg2/Zelda+Skyloft.zip/file]
 33 - Meecrobs Zelda by ilikepizza107, using Hulkalex's Skyward Sword Zelda model [http://www.mediafire.com/file/1b0t0ned2djzmg2/Zelda+Skyloft.zip/file]
 
 SHEIK
+09 - Amy! Sheik
 30 - RoSheik by jetfantastic [http://forums.kc-mm.com/Gallery/BrawlView.php?Number=213577]
 31 - Evil Lesbian Sheik by Evil Lesbian, ilikepizza107
 32 - KWAM Sheik by ilikepizza107
@@ -88,15 +96,20 @@ MARTH
 07 - Gunther Marth by ilikepizza107
 24 - Ronan Marth by ilikepizza107
 34 - Crona Marth by influenza
+35 - Notorious DOG Marth by ilikepizza107
+40 - Egsid Marth by ilikepizza107
 45 - Artemis Marth by ilikepizza107
 
 MR. GAME & WATCH
 17 - Rise GnW
 
 FALCO
+09 - Captain Birdman Falco
+26 - Atari Falco by ilikepizza107
 
 GANONDORF
 26 - Che Ganondorf by DHS7
+27 - Jejai Ganondorf by ilikepizza107
 40 - joey Ganondorf by DHS7
 
 META KNIGHT
@@ -110,8 +123,10 @@ PIT
 42 - Star Green Pit by Star, SJS
 
 ZERO SUIT SAMUS
+06 - deft ZSS
 40 - GooSluj ZSS by ilikepizza107
 45 - Pink Dark ZSS by Hulkalex, with credit to RedipsTheCooler [https://www.mediafire.com/file/bvwgvbx1h9jgsgf/Dark+Zero+Suit+Samus+Recolor.zip/file]
+50 - Nihil ZSS by ilikepizza107
 
 OLIMAR
 40 - CP9 Olimar by FingerStripes
@@ -130,9 +145,11 @@ MEWTWO
 CHARIZARD
 
 SQUIRTLE
+30 - Plate Squirtle by ilikepizza107
 
 IVYSAUR
 10 - Maofever Ivy by Maofever, with credit to ilikepizza107
+25 - BUH Ivy
 
 DEDEDE
 11 - Ripple Dedede by ???
@@ -140,6 +157,7 @@ DEDEDE
 
 LUCARIO
 25 - influenza Lucario by influenza, with credit to Chucklez, LnktheWolf, and PMDT
+26 - Fearless Lucario
 
 IKE
 24 - influezna Ike by influenza
@@ -155,11 +173,16 @@ JIGGLYPUFF
 WARIO
 
 ROY
+09 - Atari Roy by ilikepizza107
 
 TOON LINK
 08 - Shrug Toon Link by Wyld
 
 WOLF
+06 - spookyj Wolf
+25 - SunnyKnight Wolf by Autumn
+34 - Kakashi Wolf by Autumn
+35 - Black Kakashi Wolf by Autumn
 40 - GAGE Wolf by ilikepizza107, with credit to Tock for the shades model
 
 SNAKE
@@ -172,7 +195,8 @@ SONIC
 
 WARIO MAN
 
-BOWSER
+GIGA BOWSER
+11 - Nihil Giga Bowser by ilikepizza107
 
 KNUCKLES
 
