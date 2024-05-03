@@ -40,6 +40,10 @@ YOSHI
 KIRBY
 25 - Shenanigans Kirby by ilikepizza107
 26 - influenza Kirby by influenza
+35 - SSK Kirby
+36 - SSK Red Kirby
+37 - SSK Blue Kirby
+38 - SSK Green Kirby
 45 - Star Red Kirby by influenza
 46 - Star Kirby by influenza
 47 - Star Green Kirby by influenza
