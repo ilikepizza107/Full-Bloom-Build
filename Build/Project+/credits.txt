@@ -32,7 +32,7 @@ LINK
 SAMUS
 40 - GooSluj Samus by ilikepizza107
 45 - Samus Brawl Clone by SJS [https://gamebanana.com/mods/247126]
-50 - Nihil Samus by ilikepizza107
+49 - Nihil Samus by ilikepizza107
 
 YOSHI
 30 - Whoratio Yoshi by Z-Stick and ilikepizza107
@@ -126,7 +126,7 @@ ZERO SUIT SAMUS
 06 - deft ZSS
 40 - GooSluj ZSS by ilikepizza107
 45 - Pink Dark ZSS by Hulkalex, with credit to RedipsTheCooler [https://www.mediafire.com/file/bvwgvbx1h9jgsgf/Dark+Zero+Suit+Samus+Recolor.zip/file]
-50 - Nihil ZSS by ilikepizza107
+49 - Nihil ZSS by ilikepizza107
 
 OLIMAR
 40 - CP9 Olimar by FingerStripes
