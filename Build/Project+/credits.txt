@@ -66,7 +66,7 @@ CAPTAIN FALCON
 35 - Stude Captain Falcon by Motobug
 36 - SoulOfficer Falcon by influenza
 37 - ORLY Captain Falcon by Wyld
-40 - SunnyKnight Falcon by Autumn
+45 - SunnyKnight Falcon by Autumn
 
 NESS
 25 - Ntire Ness by ilikepizza107
